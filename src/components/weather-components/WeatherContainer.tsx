@@ -2,7 +2,7 @@ import React from 'react'
 import LocationInfo from './LocationInfo'
 import WeatherInfo from './WeatherInfo'
 
-function WeatherContainer({searchInput}: {searchInput:string}) {
+function WeatherContainer({searchInput , response}: {searchInput:string, response:object}) {
   const WeatherContainerStyles = {
     display: 'flex',
     flexDirection: 'row' as 'row',
@@ -12,7 +12,8 @@ function WeatherContainer({searchInput}: {searchInput:string}) {
   }
   return (
     <div style={WeatherContainerStyles}>
-      <LocationInfo searchInput={searchInput}/>
+      {/* @ts-ignore */}
+    <LocationInfo response = {response} searchInput={searchInput}/>
       <WeatherInfo/>
     </div>
   )

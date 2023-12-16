@@ -1,5 +1,13 @@
 import { cardStyle } from "../../shared/constants"
 
+
+
+
+
+
+
+
+
 function WeatherInfo() {
   return (
     <div style={cardStyle}>

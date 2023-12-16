@@ -6,9 +6,19 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 const searchInputStyle= {
   display: 'flex',
   flexDirection: 'column' as 'column',
-  margin: 'auto'
+  margin: 'auto',
+  marginTop: '30px',
+  width: '350px'
 }
-
+const inputStyles = {
+  backgroundColor: 'transparent',
+  height: '40px',
+  borderRadius: '50px',
+  textIndent: '5px',
+  border: '2px solid white',
+  marginTop: '30px',
+  color: 'white'
+}
 function Search({searchInput, searchChangeHandler,sendRequestToBackend} : {searchInput:string, searchChangeHandler: Function,sendRequestToBackend:Function}) {
 
 function handleKeyDown(event:any){
@@ -21,7 +31,7 @@ function handleKeyDown(event:any){
     <div style={searchInputStyle}>
     <label htmlFor="search">Search Location: </label>
     {/* @ts-ignore */}
-    <input onChange={searchChangeHandler} type="text" id='search' value={searchInput} onKeyDown={handleKeyDown}/>
+    <input style={inputStyles} onChange={searchChangeHandler} placeholder='eg: Beirut' type="text" id='search' value={searchInput} onKeyDown={handleKeyDown}/>
     </div>
     )
 }

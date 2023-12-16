@@ -17,22 +17,33 @@ function App() {
     display: 'flex',
     flexDirection: 'column' as 'column',
     justifyContent: 'center',
-    gap: '50px'
+    gap: '100px'
   }
-  function sendRequestToBackend(){
+  async function sendRequestToBackend() {
     // takes input from search state
 
-    //  constructs a URL
-    const requestURL = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${searchInput}&units=metric&cnt=7&appid=d94bcd435b62a031771c35633f9f310a`
+    // constructs a URL
+    const requestURL = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${searchInput}&units=metric&cnt=7&appid=d94bcd435b62a031771c35633f9f310a`;
+    console.log("hello");
 
-    // fetch new data
-    fetch(requestURL).then(function(response){return response.json()}).then(function(response){console.log(response.city?.['id']);setResponse(response)})
-  }
+    try {
+        // fetch new data
+        const response = await fetch(requestURL);
+        const responseData = await response.json();
+        console.log(responseData);
+        setResponse(responseData);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        // Handle the error as needed
+    }
+}
+
 
   return (
       <div style={appStyles} className="App">
         <Search searchInput={searchInput} searchChangeHandler={searchChangeHandler} sendRequestToBackend={sendRequestToBackend} />
-        <WeatherContainer searchInput={searchInput} />
+        {/* @ts-ignore */}
+        <WeatherContainer response = {response} searchInput={searchInput} />
 
 <div>
   {/* @ts-ignore */}
