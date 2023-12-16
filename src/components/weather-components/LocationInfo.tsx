@@ -7,6 +7,11 @@ function LocationInfo({
   searchInput: string;
   response: object;
 }) {
+// @ts-ignore
+if(response.cod == 404){
+  return <div>No location data available</div>;
+}
+
   function formatTodayDate() {
     const daysOfWeek = [
       "Sunday",

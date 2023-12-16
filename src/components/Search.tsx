@@ -18,7 +18,7 @@ const inputStyles = {
   marginTop: '30px',
   color: 'white'
 }
-function Search({searchInput, searchChangeHandler,sendRequestToBackend} : {searchInput:string, searchChangeHandler: Function,sendRequestToBackend:Function}) {
+function Search({searchInput,apiInput, searchChangeHandler,apiSearchHandler,sendRequestToBackend} : {searchInput:string, apiInput:string, searchChangeHandler: Function,sendRequestToBackend:Function, apiSearchHandler:Function}) {
 
 function handleKeyDown(event:any){
   if(event.keyCode === 13)
@@ -28,6 +28,10 @@ function handleKeyDown(event:any){
 
   return (
     <div style={searchInputStyle}>
+    <label htmlFor="api">Enter Custom API: </label>
+    {/* @ts-ignore */}
+    <input style={inputStyles} onChange={apiSearchHandler} placeholder='Enter a link here' type="text" id='api' value={apiInput} onKeyDown={handleKeyDown}/>
+    <br />
     <label htmlFor="search">Search Location: </label>
     {/* @ts-ignore */}
     <input style={inputStyles} onChange={searchChangeHandler} placeholder='eg: Beirut' type="text" id='search' value={searchInput} onKeyDown={handleKeyDown}/>
