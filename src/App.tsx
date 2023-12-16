@@ -13,12 +13,25 @@ function App() {
   function searchChangeHandler(event:any){
     setSearchInput(event.target.value)
   }
+  
+  const imageStyles = {
+    backgroundImage: `url('./1.jpeg')`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  }
+  
   const appStyles = {
+    
     display: 'flex',
     flexDirection: 'column' as 'column',
     justifyContent: 'center',
-    gap: '100px'
+    gap: '150px'
   }
+
+  const combinedStyles = {
+    ...imageStyles,
+    ...appStyles,
+  };
   async function sendRequestToBackend() {
     // takes input from search state
 
@@ -40,7 +53,7 @@ function App() {
 
 
   return (
-      <div style={appStyles} className="App">
+      <div style={combinedStyles} className="App">
         <Search searchInput={searchInput} searchChangeHandler={searchChangeHandler} sendRequestToBackend={sendRequestToBackend} />
         {/* @ts-ignore */}
         <WeatherContainer response = {response} searchInput={searchInput} />

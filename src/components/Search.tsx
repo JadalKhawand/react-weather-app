@@ -6,8 +6,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 const searchInputStyle= {
   display: 'flex',
   flexDirection: 'column' as 'column',
-  margin: 'auto',
-  marginTop: '30px',
+  // margin: '100px 100px',
   width: '350px'
 }
 const inputStyles = {

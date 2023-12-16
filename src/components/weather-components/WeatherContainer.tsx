@@ -14,7 +14,7 @@ function WeatherContainer({searchInput , response}: {searchInput:string, respons
     <div style={WeatherContainerStyles}>
       {/* @ts-ignore */}
     <LocationInfo response = {response} searchInput={searchInput}/>
-      <WeatherInfo/>
+      <WeatherInfo response = {response}/>
     </div>
   )
 }
