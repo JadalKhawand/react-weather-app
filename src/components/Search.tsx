@@ -13,10 +13,12 @@ const inputStyles = {
   backgroundColor: 'transparent',
   height: '40px',
   borderRadius: '50px',
-  textIndent: '5px',
+  textIndent: '8px',
   border: '2px solid white',
   marginTop: '30px',
-  color: 'white'
+  color: 'white',
+  '::placeholder': {
+    color: 'red',}
 }
 function Search({searchInput,apiInput, searchChangeHandler,apiSearchHandler,sendRequestToBackend} : {searchInput:string, apiInput:string, searchChangeHandler: Function,sendRequestToBackend:Function, apiSearchHandler:Function}) {
 

@@ -60,6 +60,8 @@ if(response.cod == 404){
     ...divStyles,
     ...cardStyle,
   };
+// @ts-ignore
+const formattedPopulation = response?.city?.population.toLocaleString()
 
   return (
     <div style={combinedStyles}>
@@ -70,7 +72,7 @@ if(response.cod == 404){
       </h2>
       <p>{todayFormatted}</p>
       {/* @ts-ignore */}
-      <p>Population: {response?.city?.population}</p>
+      <p>Population: {formattedPopulation}</p>
     </div>
   );
 }
