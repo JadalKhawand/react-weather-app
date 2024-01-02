@@ -51,7 +51,7 @@ let rain = (response?.list?.[0]?.pop)*100;
   
 
   if (!dayData) {
-    return <div>No weather data available</div>;
+    return <div>No data available</div>;
   }
 
   const { feels_like, weather } = dayData;
