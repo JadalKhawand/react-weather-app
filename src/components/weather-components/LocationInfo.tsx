@@ -9,7 +9,7 @@ function LocationInfo({
 }) {
 // @ts-ignore
 if(response.cod == 404){
-  return <div>No location data available</div>;
+  return <div>No data available</div>;
 }
 
   function formatTodayDate() {

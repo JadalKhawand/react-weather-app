@@ -36,21 +36,18 @@ function App() {
 
   
   async function sendRequestToBackend() {
-    // takes input from search state
-
-    // constructs a URL
+    
     const requestURL = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${searchInput}&units=metric&cnt=7&appid=d94bcd435b62a031771c35633f9f310a`;
     console.log("hello");
 
     try {
-        // fetch new data
         const response = await fetch(requestURL);
         const responseData = await response.json();
         console.log(responseData);
         setResponse(responseData);
     } catch (error) {
         console.error('Error fetching data:', error);
-        // Handle the error as needed
+      
     }
 }
 useEffect(() => {
@@ -58,6 +55,7 @@ useEffect(() => {
 }, []);
 
 console.log(response)
+// @ts-ignore
   let rain = response?.list?.[0]?.pop || 0;
   console.log(rain)
   let currentIndex = 0;
@@ -71,6 +69,7 @@ console.log(response)
     backgroundSize: 'cover',
   };
   const combinedStyles = {
+
     ...imageStyles,
     ...appStyles,
   };
